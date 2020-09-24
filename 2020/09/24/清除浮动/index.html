@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="web 前端 博客">
+
+
+<link rel="alternate" href="/atom.xml" title="影牙城堡" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>清除浮动 - 影牙城堡</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="shortcut icon" href="/favicon.png">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<nav class="main-nav">
+	<!-- 
+	    <a href="/">← Home</a>
+	 -->
+	
+	    <a href="/">首页</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	    <a href="/categories/">分类</a>
+	
+	    <a href="/tags/">标签</a>
+	
+	    <a href="/about/me">关于</a>
+	
+	<!-- <a class="cta" href="/atom.xml" data-no-instant>Subscribe</a> -->
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>清除浮动</h1>
+        
+        <h2 class="headline">Sep 24 2020
+        
+            
+            <a href="/categories/web常见问题/#web常见问题">web常见问题</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clear-float&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clear-float</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：简单，浏览器兼容性好</li>
+<li>缺点：额外增加空div</li>
+</ul>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root clear-float&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clear-float</span> &#123;</span><br><span class="line">    *zoom: 1;</span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.clear-float</span><span class="selector-pseudo">:before</span>, </span><br><span class="line"><span class="selector-class">.clear-float</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.clear-float</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：浏览器兼容性好, 解决子元素浮动导致父元素高度塌陷的问题</li>
+<li>缺点：不易理解</li>
+</ul>
+</section>
+    
+        
+        <h2 class="footline">
+            <a href="/tags/css/#css">css</a>
+        </h2>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">影牙城堡</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=http://example.com/2020/09/24/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/ - 清除浮动 @"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">Load Comments</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "清除浮动",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+	<div id="social">
+		<p class="small">
+			<!-- ©  |  -->
+			Powered by Hexo & 
+			<a target="_blank" rel="noopener" href="https://github.com/F0r3at/Lights"> Lights</a>
+		</p>
+	</div>
+</footer>
+
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
